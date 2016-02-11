@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <title>CD List</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Here are your CDs!!!</h1>
+        {% if cds is not empty %}
+            {% for cd in cds %}
+            {% set artist = cd.getArtist %}
+                <h3>{{ cd.getTitle }}</h3>
+                <ul>
+                    <li>Artist: {{ artist.getName }} </li>
+                </ul>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <form action="/clear" method="post">
+        <button type="submit" name="button">Clear</button>
+    </form>
+    <a href="/new">Add a CD</a><br>
+    <a href="/search">Search by Artist</a>
+
+</body>
+</html>

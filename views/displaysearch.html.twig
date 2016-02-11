@@ -1,0 +1,27 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <title>CD Search List</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Here are your search results</h1>
+        {% if cds is not empty %}
+            {% for cd in cds %}
+            {% set artist = cd.getArtist %}
+                <h3>{{ cd.getTitle }}</h3>
+                <ul>
+                    <li>Artist: {{ artist.getName }} </li>
+                </ul>
+            {% endfor %}
+            {% else %}
+            <p>
+                no results
+            </p>
+        {% endif %}
+    </div>
+    <a href="/new">Add a CD</a><br>
+    <a href="/list">List of CDs</a>
+
+</body>
+</html>
